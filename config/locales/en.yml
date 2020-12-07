@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+
+en:
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            title:
+              blank: "is required"
