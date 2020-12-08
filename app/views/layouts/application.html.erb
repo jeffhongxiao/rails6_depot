@@ -22,6 +22,9 @@
           <li><a href="/questions">Questions</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
+        <div class="current_datetime">
+          <%= DateTime.current() %>
+        </div>
       </nav>
       <main class='<%= controller.controller_name %>'>
         <%= yield %>
