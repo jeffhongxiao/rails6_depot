@@ -22,7 +22,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
     follow_redirect!
 
-    assert_select 'li', "1 \u00D7 Programming ruby"
+    assert_select 'td', 'Programming ruby'
   end
 
   test 'should show line_item' do
