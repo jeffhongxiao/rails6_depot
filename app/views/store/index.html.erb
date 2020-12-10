@@ -1,26 +1,27 @@
 <% if notice %>
-    <aside id="notice"><%= notice %></aside>
+<aside id="notice"><%= notice %></aside>
 <% end %>
 
 <h1>Your catalog</h1>
 
 <ul class="catalog">
     <% cache @products do %>
-        <% @products.each do |product| %>
-            <% cache product do %>
-                <li>
-                    <%=image_tag(product.image_url) %>
-                    <h2><%= product.title %></h2>
-                    <p>
-                        <%= sanitize(product.description) %>
-                    </p>
-                    <div class="price">
-                        <%= number_to_currency(product.price, locale: "zh-CN") %>
-                        <%= number_to_currency(product.price, locale: :en) %>
-                    </div>
-                    <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
-                </li>
-            <% end %>
-        <% end %>
+    <% @products.each do |product| %>
+    <% cache product do %>
+    <li>
+        <%=image_tag(product.image_url) %>
+        <h2><%= product.title %></h2>
+        <p>
+            <%= sanitize(product.description) %>
+        </p>
+        <div class="price">
+            <%= number_to_currency(product.price, locale: "zh-CN") %>
+            <%= number_to_currency(product.price, locale: :en) %>
+        </div>
+        <%= button_to 'Add to Cart', line_items_path(product_id: product),
+                    remote: true %>
+    </li>
+    <% end %>
+    <% end %>
     <% end %>
 </ul>
