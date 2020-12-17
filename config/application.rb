@@ -15,7 +15,7 @@ module Depot
     config.i18n.available_locales = [:fr, :en, 'zh-CN']
 
     # do NOT store or log credit card number
-    config.filter_params += [:credit_card_number]
+    config.filter_parameters += [:credit_card_number]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
